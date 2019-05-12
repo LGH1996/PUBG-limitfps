@@ -8,11 +8,15 @@ import android.os.Environment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.widget.Toast;
+
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.file.Paths;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -29,7 +33,7 @@ public class MainActivity extends Activity {
         str_1 = "+CVars=0B57292C3B3E3D1C0F101A1C3F292A34101D444F49";
         str_2 = "+CVars=0B57292C3B3E3D1C0F101A1C3F292A31101E11444F49";
         str_3 = "+CVars=0B57292C3B3E3D1C0F101A1C3F292A313D2B444F49";
-        path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/Config/Android/UserCustom.ini";
+        path = getExternalCacheDir().getAbsolutePath()+"/../../com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/Config/Android/UserCustom.ini";
         timer = new Timer();
         Intent intent = getPackageManager().getLaunchIntentForPackage("com.tencent.ig");
         if (intent != null) {
